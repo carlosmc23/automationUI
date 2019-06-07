@@ -1,9 +1,10 @@
 package org.practice.testing.stepdefinitionproject;
 
+
 import cucumber.api.java.en.Given;
 import org.practice.testing.managepage.login.Login;
 
-public class LoginStepdefinitions {
+public class LoginStepdefinition {
 
     Login loginPage = new Login();
 

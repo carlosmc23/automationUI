@@ -11,17 +11,6 @@ repositories {
     mavenCentral()
 }
 
-buildscript{
-    repositories{
-        jcenter()
-        maven{ url "http://repo.bodar.com"}
-    }
-
-    dependencies{
-        classpath 'net.masterthought:cucumber-reporting:3.17.1'
-    }
-}
-
 
 dependencies {
     // https://mvnrepository.com/artifact/org.testng/testng
@@ -35,34 +24,5 @@ dependencies {
 
     // cucumber-testng
     testCompile group: 'info.cukes', name: 'cucumber-testng', version: '1.2.5'
-
 }
 
-task runFeatures(type: Test) {
-    // enable TestNG support (default is JUnit)
-    useTestNG()
-
-    options {
-        jvmArgs = ['-Dcucumber.options= ' +
-                           '--glue org.practice.testing ' +
-                           '--plugin pretty ' +
-                           '--plugin json:build/cucumber/cucumber.json ' +
-                           '--plugin rerun:build/cucumber/rerun.txt ']
-        jvmArgs = ['-Dbrowser=' + browser]
-    }
-
-    // show standard out and standard error of the test JVM(s) on the console
-    testLogging.showStandardStreams = true
-
-    // set JVM arguments for the test JVM(s)
-    scanForTestClasses = false
-
-    // Do not use the Gradle's HTML report:
-    reports.html.enabled = false
-
-    ignoreFailures = true
-
-    doLast {
-        generateReport('build/cucumber/cucumber.json', 'build/cucumber/reports')
-    }
-}
