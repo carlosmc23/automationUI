@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class Login extends BasePage{
 
-    private WebDriver driver = ManageDriver.getInstance().getDriver();
+    private WebDriver driver = ManageDriver.getInstance().getWebDriver();
 
     /*@FindBy(css ="input#email") //por favor revisar por que no me esta funcionando las notaciones
     private WebElement userTextBox;

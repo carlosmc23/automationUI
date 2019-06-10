@@ -22,15 +22,20 @@ public class ManageDriver {
         return instance;
     }
 
-    public WebDriver getDriver(){
+    public WebDriver getWebDriver(){
         return driver;
     }
 
     public WebDriverWait getWebDriverWait(){
         int implicitTimeWait = 20;
-        webDriverWait = new WebDriverWait(getInstance().getDriver(), implicitTimeWait);
+        webDriverWait = new WebDriverWait(getInstance().getWebDriver(), implicitTimeWait);
         return webDriverWait;
     }
+
+    /*public WebDriverWait getExplicitWait(int time){
+        webDriverWait = new WebDriverWait(getInstance().getWebDriver(), time);
+        return webDriverWait;
+    }*/
 
 
     /*public static WebDriver getDriver(){

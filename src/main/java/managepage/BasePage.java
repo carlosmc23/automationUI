@@ -11,7 +11,7 @@ public abstract class BasePage {
     protected WebDriverWait webDriverWait;
 
     public BasePage(){
-        webDriver = ManageDriver.getInstance().getDriver();
+        webDriver = ManageDriver.getInstance().getWebDriver();
         webDriverWait = ManageDriver.getInstance().getWebDriverWait();
     }
 }
