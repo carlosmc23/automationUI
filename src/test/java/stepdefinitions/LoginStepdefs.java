@@ -1,7 +1,6 @@
 package stepdefinitions;
 
-import browsermanager.BrowserManager;
-import cucumber.api.PendingException;
+import customwebdriver.ManageDriver;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
@@ -11,7 +10,7 @@ import org.openqa.selenium.WebElement;
 
 public class LoginStepdefs {
 
-    WebDriver driver = BrowserManager.getDriver();
+    WebDriver driver = ManageDriver.getInstance().getDriver();
 
     @When("^I access the \"([^\"]*)\" page$")
     public void iAccessThePage(String url) {
@@ -42,6 +41,6 @@ public class LoginStepdefs {
     }
 
     private WebElement enterButton(){
-        return driver.findElement(By.cssSelector("input[id='u_0_2']"));
+        return driver.findElement(By.cssSelector("input[data-testid='royal_login_button']"));
     }
 }
