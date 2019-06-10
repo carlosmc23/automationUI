@@ -2,10 +2,13 @@ package customwebdriver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ManageDriver {
     private static ManageDriver instance;
-    private static WebDriver driver;
+    private WebDriver driver;
+    private WebDriverWait webDriverWait;
+
 
     private ManageDriver(){
         driver = new ChromeDriver();
@@ -22,6 +25,13 @@ public class ManageDriver {
     public WebDriver getDriver(){
         return driver;
     }
+
+    public WebDriverWait getWebDriverWait(){
+        int implicitTimeWait = 20;
+        webDriverWait = new WebDriverWait(getInstance().getDriver(), implicitTimeWait);
+        return webDriverWait;
+    }
+
 
     /*public static WebDriver getDriver(){
         if(driver==null){
